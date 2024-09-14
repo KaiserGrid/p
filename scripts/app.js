@@ -1,4 +1,6 @@
-
+// Import the functions you need from the SDKs you need
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js';
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -11,15 +13,16 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
 // Get elements
 const loginButton = document.getElementById('loginButton');
 
 // Handle login
 loginButton.addEventListener('click', () => {
-    const provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(provider)
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
         .then((result) => {
             // User signed in
             console.log('User signed in:', result.user);
@@ -31,7 +34,7 @@ loginButton.addEventListener('click', () => {
 });
 
 // Check authentication state
-firebase.auth().onAuthStateChanged(user => {
+onAuthStateChanged(auth, (user) => {
     if (user) {
         console.log('User is signed in:', user);
         loginButton.style.display = 'none'; // Hide login button if logged in
