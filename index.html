@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <div id="login-container" class="container mt-5">
+      <h1 class="text-center">Login to View Portfolio</h1>
+      <button id="login-button" class="btn btn-primary btn-lg btn-block">Login with Google</button>
+    </div>
+    <div id="portfolio-container" class="container mt-5 d-none">
+      <!-- Your portfolio content goes here -->
+      <h1 class="text-center">My Portfolio</h1>
+      <!-- Add more portfolio content here -->
+      <button id="logout-button" class="btn btn-danger btn-lg btn-block">Logout</button>
+    </div>
+  </div>
+
+  <!-- Firebase App (the core Firebase SDK) -->
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
